@@ -13,7 +13,7 @@ class Roommate:
         self.days_in_house = days_in_house
 
     def pays(self, bill):
-        pass
+        return bill.amount / 2
 
 class PdfReport:
     """ Creates a Pdf file that contains data about the flatmates such as their names, their amount and the billing period"""
@@ -23,3 +23,9 @@ class PdfReport:
 
     def generate(self, roommate1, roommate2, bill):
         pass
+
+the_bill = Bill(amount=120, period='March 2021')
+john = Roommate(name='John', days_in_house=20)
+mary = Roommate(name='Mary', days_in_house=25)
+
+print(john.pays(bill=the_bill))
