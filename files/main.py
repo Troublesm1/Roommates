@@ -25,7 +25,7 @@ class PdfReport:
         pass
 
 the_bill = Bill(amount=120, period='March 2021')
-john = Roommate(name='John', days_in_house=20)
-mary = Roommate(name='Mary', days_in_house=25)
+john = Roommate(name='John', days_in_house=20) #You can write this either way
+mary = Roommate('Mary', 25) #You can write this either way
 
 print(john.pays(bill=the_bill))
