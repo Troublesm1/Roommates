@@ -7,13 +7,14 @@ class Bill:
 
 class Roommate:
     """ Creates a roommate(person) who lives in the flat and pays a share of the bill."""
-
     def __init__(self, name, days_in_house):
         self.name = name
         self.days_in_house = days_in_house
 
-    def pays(self, bill):
-        return bill.amount / 2
+    def pays(self, bil, roommate2):
+        weight = self.days_in_house / self.days_in_house + roommate2.days_in_house
+        to_pay = bill.amount * weight
+        return to_pay
 
 class PdfReport:
     """ Creates a Pdf file that contains data about the flatmates such as their names, their amount and the billing period"""
@@ -28,4 +29,4 @@ the_bill = Bill(amount=120, period='March 2021')
 john = Roommate(name='John', days_in_house=20) #You can write this either way
 mary = Roommate('Mary', 25) #You can write this either way
 
-print(john.pays(bill=the_bill))
+print(john.pays(bill=the_bill, flatmate2=mary))
