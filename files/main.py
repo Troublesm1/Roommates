@@ -1,6 +1,5 @@
 class Bill:
     """ Object that contains data about a bill, such as the total amount and period of the bill."""
-
     def __init__(self, amount, period):
         self.amount = amount
         self.period = period
@@ -11,8 +10,8 @@ class Roommate:
         self.name = name
         self.days_in_house = days_in_house
 
-    def pays(self, bil, roommate2):
-        weight = self.days_in_house / self.days_in_house + roommate2.days_in_house
+    def pays(self, bill, roommate2):
+        weight = self.days_in_house / (self.days_in_house + roommate2.days_in_house)
         to_pay = bill.amount * weight
         return to_pay
 
@@ -29,4 +28,5 @@ the_bill = Bill(amount=120, period='March 2021')
 john = Roommate(name='John', days_in_house=20) #You can write this either way
 mary = Roommate('Mary', 25) #You can write this either way
 
-print(john.pays(bill=the_bill, flatmate2=mary))
+print('John pays: ', john.pays(bill=the_bill, roommate2=mary))
+print('Mary pays: ', mary.pays(bill=the_bill, roommate2=john))
