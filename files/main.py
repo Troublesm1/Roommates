@@ -17,7 +17,7 @@ class Roommate:
         return to_pay
 
 class PdfReport:
-    """ Creates a Pdf file that contains data about the flatmates such as their names, their amount and the billing period"""
+    """ Creates a Pdf file that contains data about the roommates such as their names, their amount and the billing period"""
 
     def __init__(self, filename):
         self.filename = filename
