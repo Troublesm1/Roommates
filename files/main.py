@@ -1,3 +1,5 @@
+import fpdf
+
 class Bill:
     """ Object that contains data about a bill, such as the total amount and period of the bill."""
     def __init__(self, amount, period):
@@ -16,8 +18,7 @@ class Roommate:
         return to_pay
 
 class PdfReport:
-    """ Creates a Pdf file that contains data about the roommates such as their names, their amount and the billing period"""
-
+    pass
     def __init__(self, filename):
         self.filename = filename
 
