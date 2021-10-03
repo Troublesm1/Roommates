@@ -1,4 +1,5 @@
 from fpdf import FPDF
+import webbrowser
 
 class Bill:
     """ Object that contains data about a bill, such as the total amount and period of the bill."""
@@ -53,6 +54,11 @@ class PdfReport:
         pdf.cell(w=150, h=25, txt= roommate2_pay, border=0, ln=1)
 
         pdf.output(self.filename)
+
+        #Open PDF file in Default PDF view or browser
+        webbrowser.open(self.filename)
+        #USE THIS LINE INSTEAD OF LINE 57 IF USING MAC
+        # webbrowser.open('file://' + os.path.realpath(self.filename))
 
 the_bill = Bill(amount=120, period='April 2021')
 john = Roommate(name='John', days_in_house=20) #You can write this either way
