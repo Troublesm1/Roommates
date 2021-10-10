@@ -60,12 +60,22 @@ class PdfReport:
         #USE THIS LINE INSTEAD OF LINE 57 IF USING MAC
         # webbrowser.open('file://' + os.path.realpath(self.filename))
 
-the_bill = Bill(amount=120, period='April 2021')
-john = Roommate(name='John', days_in_house=20) #You can write this either way
-mary = Roommate('Mary', 25) #You can write this either way
+amount = float(input('Hey user, enter the bill amount:'))
+period = input('What is the bill period: E.g. December 2021: ')
 
-print('John pays: ', john.pays(bill=the_bill, roommate2=mary))
-print('Mary pays: ', mary.pays(bill=the_bill, roommate2=john))
+name1 = input('What is your name? ')
+days_in_house1 = int(input(f'How many days did {name1} stay in the house during the bill period? '))
 
-pdf_report = PdfReport(filename='Report1.pdf')
-pdf_report.generate(roommate1=john, roommate2=mary, bill=the_bill)
+name2 = input('What is the name of the other roommate? ')
+days_in_house2 = int(input(f'How many days did {name2} stay in the house during the bill period? '))
+
+
+the_bill = Bill(amount, period)
+roommate1 = Roommate(name1, days_in_house1) #You can write this either way
+roommate2 = Roommate(name2, days_in_house2) #You can write this either way
+
+print(f'{roommate1.name} pays: ', roommate1.pays(the_bill, roommate2))
+print(f'{roommate2.name} pays: ', roommate2.pays(the_bill, roommate1))
+
+pdf_report = PdfReport(filename=f'{the_bill.period}.pdf')
+pdf_report.generate(roommate1, roommate2, the_bill)
