@@ -1,4 +1,5 @@
 import webbrowser
+import os
 from fpdf import FPDF
 
 class PdfReport:
@@ -35,6 +36,8 @@ class PdfReport:
         pdf.set_font(family='Times', size=12)
         pdf.cell(w=100, h=25, txt=roommate2.name, border=0)
         pdf.cell(w=150, h=25, txt= roommate2_pay, border=0, ln=1)
+
+        os.chdir('files')
 
         pdf.output(self.filename)
 
